@@ -1,0 +1,152 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Este projeto contém o resultado do desafio para concorrer a vaga de desenvolvedor Python na UNBOX CULTURE.",
+    "version": "1.0.0",
+    "title": "Desafio UNBOX CULTURE",
+    "contact": {
+      "email": "leandromatosdosreis@gmail.com"
+    }
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "partidas",
+      "description": "Informações sobre as partidas"
+    },
+    {
+      "name": "jogadores",
+      "description": "Informações sobre os jogadores"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/partidas/timeout": {
+      "get": {
+        "tags": [
+          "partidas"
+        ],
+        "summary": "Retorna a quantidade partidas finalizas por timeout",
+        "operationId": "partidas_timeout",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Numero"
+            }
+          }
+        }
+      }
+    },
+    "/partidas/media-turnos": {
+      "get": {
+        "tags": [
+          "partidas"
+        ],
+        "summary": "Exibe quantos turnos em média demora uma partida",
+        "operationId": "partidas_media_turnos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Numero"
+            }
+          }
+        }
+      }
+    },
+    "/jogadores/porcentagens": {
+      "get": {
+        "tags": [
+          "jogadores"
+        ],
+        "summary": "Exibe qual a porcentagem de vitórias por comportamento dos jogadores",
+        "operationId": "jogadores_porcentagens",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Porcentagens"
+            }
+          }
+        }
+      }
+    },
+    "/jogadores/vencedor": {
+      "get": {
+        "tags": [
+          "jogadores"
+        ],
+        "summary": "Exibe qual o comportamento que mais vence",
+        "operationId": "jogadores_vencedor",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta realizada com sucesso!",
+            "schema": {
+              "$ref": "#/definitions/Texto"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Numero": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "number"
+        }
+      }
+    },
+    "Texto": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "Porcentagens": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "aleatorio": {
+              "type": "number"
+            },
+            "cauteloso": {
+              "type": "number"
+            },
+            "exigente": {
+              "type": "number"
+            },
+            "impulsivo": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Veja mais no GitHub",
+    "url": "https://github.com/leandroreis/unbox-desafio"
+  }
+}
